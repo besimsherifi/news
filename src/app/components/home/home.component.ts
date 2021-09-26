@@ -29,7 +29,6 @@ export class HomeComponent implements OnInit {
     this.newsService.getHeadlines().subscribe((res:any) => {
       this.topHeadlines = res.articles
       console.log(res);
-      
     })
   }
 
