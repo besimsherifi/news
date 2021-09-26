@@ -1,0 +1,13 @@
+<div class="container" *ngIf="!collapsed">
+    <div class="row" [ngClass]="{'': topHeadlines != null , 'side-padding': topHeadlines}">
+        <div class="col" style="padding: 10px;"  *ngFor="let headline of topHeadlines">
+            <div class="card" style="width: 18rem; cursor: pointer;" (click)="openNewsDetails(headline)" >
+                <img class="card-img-top" src="{{headline.urlToImage != null ? headline.urlToImage : 'assets/noimg.jpeg'}}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">{{headline.title}}</h5>
+                  <p class="card-text">{{headline.description}}</p>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
