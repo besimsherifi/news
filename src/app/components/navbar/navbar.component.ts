@@ -13,6 +13,9 @@ export class NavbarComponent implements OnInit {
   constructor(private newsService: NewsService) { }
 
   ngOnInit(): void {
+    this.newsService.navbarCollapserState.subscribe((res) => {
+      this.collapsed = res;
+    })
   }
 
   navbarToggler(){

@@ -1,3 +1,67 @@
-<div class="search" style="background-color: black; height: 100%;">
+<div class="container main-container some-element {{version}}">
+    <form class="form-inline my-2 my-lg-0" (ngSubmit)="onSubmit(form)" #form="ngForm">
+        <div class="row input-container">
+            <input class="form-control mr-sm-2 input" type="search" placeholder="Search" aria-label="Search"
+                name="query" ngModel>
+        </div>
+    </form>
+    <div class="row footer-links">
+        <div class="col">
+            <table>
+                <th>Category</th>
+                <ng-container *ngFor="let category of categories">
+                    <tr (click)="onClick(category)">{{category}}</tr>
+                </ng-container>
+            </table>
+        </div>
+        <div class="col">
+            <table>
+                <th>Countries</th>
+                <ng-container *ngFor="let country of countries | keyvalue">
+                    <tr (click)="onCountry(country.key)">{{country.value}}</tr>
+                </ng-container>
+            </table>
+        </div>
+        <div class="col">
+            <table>
+                <th>More</th>
+                <tr>Covid-19 stats</tr>
+                <tr>Weather</tr>
+            </table>
+        </div>
+    </div>
+    <div class="row news-api">
+        <div class="col-md-8">
+            <p class="news-api-paragraph">This web-app was made thanks to the public & free api "News API"</p>
+        </div>
+        <div class="col-md-4">
+            <table>
+                <th>News API</th>
+                <tr><a href="https://newsapi.org/docs/get-started" target="_blank">Get Started</a></tr>
+                <tr><a href="https://newsapi.org/docs" target="_blank">Documentation</a></tr>
+                <tr><a href="https://newsapi.org/sources" target="_blank">News Sources</a></tr>
+                <tr><a href="https://newsapi.org/s/google-news-api" target="_blank">Google News API</a></tr>
+            </table>
+        </div>
+    </div>
+    <hr style="color: #fff;" *ngIf="!hr">
+    <img src="{{footerImage}}" class="brand" alt="">
+    <div class="row footer-icons">
+        <div class="col">
+            <p>Follow Us</p>
+        </div>
+        <div class="col" style="display: flex;
+    margin-left: 10px;">
+            <a href=""><i class="fa fa-facebook"></i></a>
+            <a href=""><i class="fa fa-instagram"></i></a>
+            <a href=""><i class="fa fa-twitter"></i></a>
+        </div>
+    </div>
+    <hr style="color: #ffffff;" *ngIf="hr">
+    <div class="footer-footer">
+        <p class="footer-pargraphs">{{termsOfUse}}</p>
+        <p class="footer-pargraphs">{{privacyPolicy}}</p>
+        <p class="footer-pargraphs">{{aboutUs}}</p>
+    </div>
 
 </div>

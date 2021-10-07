@@ -1,4 +1,4 @@
-<div class="container" style="padding: 10px 40px 10px 40px;">
+<div class="container" *ngIf="!collapsed" style="padding: 10px 40px 10px 40px;">
     <div class="row padding-10">
         <h1>{{headlineDetails?.title}}</h1>
         <b>By <a>{{headlineDetails?.author}}</a>, {{headlineDetails?.source?.name}}</b>
@@ -16,24 +16,3 @@
         <p>{{headlineDetails?.content}}</p>
     </div>
 </div>
-
-
-
-
-
-
-
-<!-- <div class="container" *ngIf="!collapsed">
-    <div class="row" style="padding: 25px;">
-        <div class="col"  >
-            <div class="card" style="width: 18rem;" *ngIf="headlineDetails">
-                <img class="card-img-top" src="{{headlineDetails?.urlToImage}}" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">{{headlineDetails?.title}}</h5>
-                  <p class="card-text">{{headlineDetails?.description}}</p>
-
-                </div>
-              </div>
-        </div>
-    </div>
-</div> -->

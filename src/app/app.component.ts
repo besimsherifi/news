@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NewsService } from './services/news.service';
 
 @Component({
@@ -9,6 +9,7 @@ import { NewsService } from './services/news.service';
 export class AppComponent implements OnInit {
   title = 'news';
   collapsed = false;
+  @Input() test: any;
   
   constructor(private newsService: NewsService) {}
 

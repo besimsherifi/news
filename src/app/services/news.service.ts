@@ -23,6 +23,10 @@ export class NewsService {
     urlToImage: '',
     content: ''
   });
+
+  searchedNews = new BehaviorSubject<any>(null);
+
+
   
   
 
@@ -30,5 +34,17 @@ export class NewsService {
 
   getHeadlines() {
     return this.http.get(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${this.newsApiKey}`);
+  }
+
+  searchNews(query: string) {
+    return this.http.get(`https://newsapi.org/v2/everything?q=${query}&apiKey=${this.newsApiKey}`);
+  }
+  
+  categoryNews(category: string){
+    return this.http.get(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${this.newsApiKey}`);
+  }
+
+  countryNews(country: string){
+    return this.http.get(`https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${this.newsApiKey}`);
   }
 }

@@ -20,15 +20,17 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTopHeadlines();
-    this.newsService.navbarCollapserState.subscribe((res)=> {
-      this.collapsed = res
+    this.newsService.searchedNews.subscribe((res)=>{
+      this.topHeadlines = res;      
+    });
+    this.newsService.navbarCollapserState.subscribe((res) => {
+      this.collapsed = res;
     })
   }
 
   getTopHeadlines() {
     this.newsService.getHeadlines().subscribe((res:any) => {
       this.topHeadlines = res.articles
-      // console.log(res);
     })
   }
 
